@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  price: 1.5
+  duration: 1
+  description: MyString
+  start_date: 2017-07-10
+  information_is_confirmed: false
+
+two:
+  name: MyString
+  price: 1.5
+  duration: 1
+  description: MyString
+  start_date: 2017-07-10
+  information_is_confirmed: false

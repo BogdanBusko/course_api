@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class CourseTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test 'add new record' do
+    Course.create(name: 'Programing')
+
+    assert_equal 1, Course.count
+  end
 end

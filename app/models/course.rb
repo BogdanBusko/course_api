@@ -1,11 +1,15 @@
 class Course
   include Mongoid::Document
+  
+  embeds_many :contacts
+  
   field :name, type: String
   field :price, type: Integer
   field :duration, type: Integer
   field :description, type: String
   field :start_date, type: Date
   field :status, type: String
+  field :link_on_official_site, type: String
   field :information_is_confirmed, type: Mongoid::Boolean
 
   before_create :change_course_status
@@ -14,9 +18,6 @@ class Course
   private
 
   def change_course_status
-
-    # byebug
-    
     if information_is_confirmed
       days_to_start = (self.start_date - DateTime.now).to_i
 

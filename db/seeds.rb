@@ -1,6 +1,6 @@
 20.times do 
   course = Course.create(
-    name: Faker::Educator.course,
+    title: Faker::Educator.course,
     price: Faker::Number.number(5),
     duration: Faker::Number.between(1, 36), 
     description: Faker::Educator.university, 

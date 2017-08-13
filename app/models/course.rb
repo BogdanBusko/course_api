@@ -3,7 +3,7 @@ class Course
   
   embeds_many :contacts
   
-  field :name, type: String
+  field :title, type: String
   field :price, type: Integer
   field :duration, type: Integer
   field :description, type: String

@@ -1,8 +1,10 @@
 class Course
   include Mongoid::Document
-  
+
   embeds_many :contacts
   
+  belongs_to :category 
+
   field :title, type: String
   field :price, type: Integer
   field :duration, type: Integer

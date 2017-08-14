@@ -12,7 +12,7 @@ class Course
   field :link_on_official_site, type: String
   field :information_is_confirmed, type: Mongoid::Boolean
 
-  before_create :change_course_status
+  before_create :change_course_status, :get_course_id
   before_update :change_course_status
   
   private

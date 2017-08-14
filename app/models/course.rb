@@ -4,6 +4,7 @@ class Course
   embeds_many :contacts
   
   belongs_to :category 
+  belongs_to :user
 
   field :title, type: String
   field :price, type: Integer

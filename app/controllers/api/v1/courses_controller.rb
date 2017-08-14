@@ -1,8 +1,8 @@
 class Api::V1::CoursesController < ApplicationController
-  def index
-    courses = Course.all
+  def show 
+    course = Course.find(params[:id])
 
-    render json: courses, status: :ok
+    render json: course, status: :ok
   end
 
   def create

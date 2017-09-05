@@ -1,8 +1,8 @@
 class Api::V1::CoursesController < ApplicationController
   def show 
-    course = Course.find(params[:id])
+    @course = Course.find(params[:id])
 
-    render json: course, status: :ok
+    render :show, status: :ok
   end
 
   def create
@@ -11,7 +11,7 @@ class Api::V1::CoursesController < ApplicationController
     if course.save
       head(:created)
     else
-      head(:unprocessable_entity)
+      render json: { error: course.errors.full_messages }, status: :error
     end
   end
 
@@ -21,23 +21,20 @@ class Api::V1::CoursesController < ApplicationController
     if course.update_attributes(course_params)
       head(:accepted)
     else
-      head(:unprocessable_entity)
+      render json: { error: course.errors.full_messages }, status: :error
     end
   end
 
   def destroy
     course = Course.find(params[:id])
+    course.delete
 
-    if course.destroy 
-      head(:accepted)
-    else 
-      head(:unprocessable_entity)
-    end
+    head(:accepted)
   end
 
   private
 
   def course_params
-    params.permit(:title, :price, :duration, :description, :start_date, :status, :link_on_official_site)
+    params.permit(:title, :price, :duration, :description, :start_date, :status)
   end 
 end

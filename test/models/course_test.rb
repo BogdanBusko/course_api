@@ -1,9 +1,13 @@
 require 'test_helper'
 
 class CourseTest < ActiveSupport::TestCase
-  test 'add new record' do
-    Course.create(name: 'Programing')
+  test 'callback before_create' do 
+    assert_equal 'До початку курсу залишилось: 4 д.', Course.first.status
+  end
 
-    assert_equal 1, Course.count
+  test 'callback before_update' do
+    Course.last.update_attribute(:start_date, DateTime.now + 3)
+
+    assert_equal 'До початку курсу залишилось: 2 д.', Course.last.status
   end
 end

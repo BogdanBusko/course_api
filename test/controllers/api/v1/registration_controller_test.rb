@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SubscriberTest < ActiveSupport::TestCase
+class Api::V1::RegistrationControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

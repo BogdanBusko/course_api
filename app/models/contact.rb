@@ -7,4 +7,6 @@ class Contact
   field :email, type: String
   field :phone, type: String
   field :facebook, type: String
+
+  validates_uniqueness_of :email, :phone, :facebook
 end

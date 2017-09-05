@@ -1,12 +1,12 @@
 class Api::V1::CategoriesController < ApplicationController
-  def index
-    render json: Category.all, status: :ok
-  end
-
   def show
-    category = Category.find(params[:id])
+    @courses_by_category = if params[:search].present
+        Category.find(params[:id]).courses.courses.where(title: /.*#{params[:search]}*./i)
+      else
+        Category.find(params[:id]).courses.courses
+      end
 
-    render json: category.courses, status: :ok
+    render :show, status: :ok
   end
   
   def create
@@ -15,7 +15,7 @@ class Api::V1::CategoriesController < ApplicationController
     if category.save
       head(:created)
     else
-      head(:unprocessable_entity)
+      render json: { error: category.errors.full_messages }, status: :error
     end
   end
 

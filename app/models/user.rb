@@ -1,7 +1,7 @@
 class User
   include Mongoid::Document
 
-  # has_many :courses
+  has_many :courses
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

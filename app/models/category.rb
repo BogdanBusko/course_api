@@ -3,7 +3,6 @@ class Category
   include Mongoid::Document
 
   has_many :courses
-  belongs_to :subscriber, optional: true
 
   field :category, type: String
   field :description, type: String

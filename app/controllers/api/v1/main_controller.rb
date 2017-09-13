@@ -7,6 +7,6 @@ class Api::V1::MainController < ApplicationController
         Course.courses
       end
 
-    render :index, status: :ok
+      render :index, status: :ok
   end 
 end

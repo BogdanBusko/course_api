@@ -3,15 +3,14 @@ user1 = User.create(
   email: 'busko.bogdan@gmail.com',
   password: '1234567890',
   work_plays: 'Webmil', 
-  status: 'Підриємець'
+  employer: true
 )
 
 user2 = User.create(
   full_name: 'Busko Andriy',
   email: 'busko.andriy@gmail.com',
   password: '1234567890',
-  work_plays: 'Студент',
-  status: 'Користувач'
+  work_plays: 'Студент'
 )
 
 category1 = Category.create(category: 'Programming')

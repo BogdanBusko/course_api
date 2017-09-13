@@ -13,5 +13,4 @@ json.data do
     json.start_date course.start_date
     json.status course.status
   end
-
 end

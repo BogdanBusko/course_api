@@ -3,7 +3,8 @@ user1 = User.create(
   email: 'busko.bogdan@gmail.com',
   password: '1234567890',
   work_plays: 'Webmil', 
-  employer: true
+  entrepreneur: true,
+  phone: '380977153858'
 )
 
 user2 = User.create(
@@ -19,7 +20,8 @@ category3 = Category.create(category: 'Gaming')
 
 
 5.times do 
-  category1.courses.create(
+  user1.courses.create(
+    category_id: category1.id,
     title: Faker::Educator.course,
     price: Faker::Number.number(5),
     duration: "#{ Faker::Number.between(1, 36) } т.", 
@@ -44,7 +46,7 @@ category3 = Category.create(category: 'Gaming')
 end
 
 5.times do 
-  category2.courses.create(
+  user2.courses.create(
     category_id: category2.id,
     title: Faker::Educator.course,
     price: Faker::Number.number(5),
@@ -70,7 +72,7 @@ end
 end
 
 5.times do 
-  category3.courses.create(
+  user1.courses.create(
     category_id: category3.id,
     title: Faker::Educator.course,
     price: Faker::Number.number(5),

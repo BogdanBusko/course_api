@@ -1,7 +1,7 @@
 json.data do
 
   json.courses @courses_by_category do |course|
-    json.id course.id.to_json
+    json.id course.id.to_s
     json.title course.title
     json.price course.price
     json.duration course.duration

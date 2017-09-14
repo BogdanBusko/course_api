@@ -1,4 +1,6 @@
 class Api::V1::CoursesController < ApplicationController
+  before_action :authenticate_request, only: [:create, :update]
+  
   def show 
     @course = Course.find(params[:id])
 
@@ -23,13 +25,6 @@ class Api::V1::CoursesController < ApplicationController
     else
       render json: { error: course.errors.full_messages }, status: :error
     end
-  end
-
-  def destroy
-    course = Course.find(params[:id])
-    course.delete
-
-    head(:accepted)
   end
 
   private

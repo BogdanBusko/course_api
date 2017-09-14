@@ -4,7 +4,7 @@ class Course
   embeds_many :contacts
   
   belongs_to :category, optional: true
-  belongs_to :user, optional: true
+  belongs_to :user
 
   field :title, type: String 
   field :price, type: Integer, default: 0
@@ -14,7 +14,7 @@ class Course
   field :status, type: String
   field :information_is_confirmed, type: Mongoid::Boolean, default: false
 
-  validates_length_of :title, minimum: 3, maximum: 24
+  validates_length_of :title, minimum: 3, maximum: 100
   validates_length_of :description, maximum:256
   validates_presence_of :title, :duration, :description, :start_date
   validate :validate_start_date

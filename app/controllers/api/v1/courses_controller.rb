@@ -1,5 +1,5 @@
 class Api::V1::CoursesController < ApplicationController
-  before_action :authenticate_request, only: [:create, :update]
+  before_action :authenticate_request, :entrepreneur, only: [:create, :update]
   
   def show 
     @course = Course.find(params[:id])

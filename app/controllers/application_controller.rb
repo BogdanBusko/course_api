@@ -7,4 +7,8 @@ class ApplicationController < ActionController::API
       @current_user = AuthorizeApiRequest.call(request.headers).result
       render json: { error: 'Not Authorized' }, status: 401 unless @current_user
     end
+
+    def entrepreneur 
+      render json: { error: 'Ви не являєтесь підприємце! Для того щоб створювати нові курси ви мусите бути підриємцем!' }, status: 500 unless @current_user.entrepreneur
+    end
 end

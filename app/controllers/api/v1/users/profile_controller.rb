@@ -16,6 +16,6 @@ class Api::V1::Users::ProfileController < ApplicationController
   private 
 
     def user_params
-      params.permit(:full_name, :email, :password, :entrepreneur, :work_plays, :facebook, :phone)      
+      params.permit(:full_name, :email, :password, :work_plays, :facebook, :phone)      
     end
 end

@@ -1,4 +1,6 @@
 class Api::V1::CategoriesController < ApplicationController
+  before_action :authenticate_request, :entrepreneur, only: [:create]
+  
   def show
     @courses_by_category = if params[:search].present
         Category.find(params[:id]).courses.courses.where(title: /.*#{params[:search]}*./i)

@@ -1,3 +1,5 @@
+require 'securerandom'
+
 class AuthenticateUser
   prepend SimpleCommand
 
@@ -7,7 +9,7 @@ class AuthenticateUser
   end
 
   def call
-    JsonWebToken.encode(user_id: user.id.to_s) if user
+    JsonWebToken.encode(auth_token: user.auth_token) if user
   end
 
   private
@@ -16,8 +18,10 @@ class AuthenticateUser
 
     def user
       user ||= User.find_by(email: email)
-      return user if user&.authenticate(password)
-
+      if user&.valid_password?(password)
+        user.update_attribute(:auth_token, SecureRandom.urlsafe_base64)
+        return user
+      end
       errors.add :user_authentication, 'Не вірний пароль!'
       nil
     end

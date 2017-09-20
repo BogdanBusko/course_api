@@ -5,6 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'devise'
+gem 'kaminari-mongoid'
+gem 'rails_admin', '~> 1.2'
 gem 'simple_command'
 gem 'mongoid'
 gem 'whenever', :require => false

@@ -1,4 +1,5 @@
-Rails.application.routes.draw do  
+Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   scope module: 'api/v1' do
     resources :main, only: [:index]
     resources :categories, only: [:show, :create]

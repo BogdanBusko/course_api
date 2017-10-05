@@ -4,7 +4,7 @@ class Api::V1::CoursesController < ApplicationController
   def show 
     @course = Course.find(params[:id])
 
-    render :show, status: :ok
+    render json: :show, status: :ok
   end
 
   def create
@@ -30,6 +30,6 @@ class Api::V1::CoursesController < ApplicationController
   private
 
   def course_params
-    params.permit(:title, :price, :duration, :description, :start_date, :status)
+    params.permit(:name, :price, :duration, :description, :start_date, :status)
   end 
 end

@@ -1,7 +1,7 @@
 class Contact
   include Mongoid::Document
   
-  embedded_in :courses
+  embedded_in :courses, inverse_of: :couses
   
   field :name, type: String
   field :email, type: String

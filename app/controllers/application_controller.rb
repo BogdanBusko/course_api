@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::API
+  include ActionController::RequestForgeryProtection
+  
+  protect_from_forgery
   attr_accessor :current_user
 
   private 

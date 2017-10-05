@@ -2,12 +2,12 @@ json.data do
   
   json.categories @categories do |category|
     json.id category.id.to_json
-    json.category category.category
+    json.category category.name
   end
 
   json.courses @courses do |course|
     json.id course.id.to_s
-    json.title course.title
+    json.name course.name
     json.price course.price
     json.duration course.duration
     json.start_date course.start_date

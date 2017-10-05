@@ -2,7 +2,7 @@ json.data do
   json.course do
     json.(
       @course,
-      :title,
+      :name,
       :price,
       :duration,
       :description,

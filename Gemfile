@@ -12,6 +12,7 @@ gem 'simple_command'
 gem 'mongoid'
 gem 'whenever', :require => false
 gem 'jwt'
+gem 'email_verifier'
 
 gem 'rails', '~> 5.1.3'
 gem 'puma', '~> 3.0'

@@ -3,10 +3,11 @@ class Api::V1::Users::RegistrationController < ApplicationController
   def create
     user = User.new(user_params)
 
-    if user.save 
+    if user.save && EmailVerifier.check(user.email)
+      ActivationMailer.activation(user).deliver
       head(:created)
     else
-      render json: { error: user.errors.full_messages }
+      render json: { error: user.errors.full_messages || EmailVerifier.errors.full_messages }
     end
   end
 

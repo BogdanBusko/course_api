@@ -7,7 +7,7 @@ class ActiveSupport::TestCase
   
   2.times do
     Course.create(
-      title: 'Програмування',
+      name: 'Програмування',
       price: 0,
       duration: '2 м.',
       description: 'Test data',

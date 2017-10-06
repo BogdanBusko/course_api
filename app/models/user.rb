@@ -16,7 +16,7 @@ class User
   field :email,                type: String
   field :encrypted_password,   type: String
   field :name,                 type: String
-  field :work_plays,           type: String,           default: 'Інформація відсутня'
+  field :work_plays,           type: String,           default: 'Інформація не зазначено'
   field :entrepreneur,         type: Mongoid::Boolean, default: false
   field :account_confirmed,    type: Mongoid::Boolean, default: false
   field :facebook,             type: String

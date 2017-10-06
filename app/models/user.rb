@@ -23,6 +23,7 @@ class User
   field :phone,                type: String
   field :auth_token,           type: String
   field :role,                 type: Integer,          default: 2
+  field :last_sign_in,         type: Date
   
   validates_presence_of   :name, :email
   validates_length_of     :password, minimum: 6, maximum: 16 

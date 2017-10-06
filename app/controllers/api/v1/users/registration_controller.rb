@@ -5,7 +5,7 @@ class Api::V1::Users::RegistrationController < ApplicationController
 
     if user.save && EmailVerifier.check(user.email)
       ActivationMailer.activation(user).deliver
-            
+      
       head(:created)
     else
       render json: { error: user.errors.full_messages || EmailVerifier.errors.full_messages }

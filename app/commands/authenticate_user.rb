@@ -18,10 +18,8 @@ class AuthenticateUser
 
     def user
       user ||= User.find_by(email: email)
-      if user&.valid_password?(password)
-        user.update_attribute(:auth_token, SecureRandom.urlsafe_base64)
-        return user
-      end
+      return user if user&.valid_password?(password)
+
       errors.add :user_authentication, 'Не вірний пароль!'
       nil
     end

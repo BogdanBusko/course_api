@@ -4,7 +4,6 @@ require 'rails/test_help'
 
 class ActiveSupport::TestCase
   DatabaseCleaner.clean
-  
   2.times do
     Course.create(
       name: 'Програмування',

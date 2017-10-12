@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class CourseTest < ActiveSupport::TestCase
-  test 'callback before_create' do 
+  test 'callback before_create' do
     assert_equal 'До початку курсу залишилось: 4 д.', Course.first.status
   end
 

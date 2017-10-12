@@ -1,10 +1,10 @@
 class ActivationMailer < ApplicationMailer
-  default from: "busko.bogdan@gmail.com"
+  default from: 'busko.bogdan@gmail.com'
 
   def activation(user)
     @user = user
     mail(
-      to: @user.email, 
+      to: @user.email,
       subject: 'Підтвердження'
     )
   end

@@ -1,15 +1,13 @@
 json.data do
   json.course do
-    json.(
+    json.call(
       @course,
       :name,
       :price,
-      :duration,
       :description,
-      :start_date,
-      :status
+      :start_date
     )
-    json.(
+    json.call(
       @course.category,
       :category
     )

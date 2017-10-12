@@ -9,25 +9,23 @@ class AuthorizeApiRequest
     user
   end
 
-  private 
+  private
 
-    attr_accessor :headers 
+  attr_accessor :headers
 
-    def user
-      @user ||= User.find(decoded_auth_token[:auth_token]) if decoded_auth_token
-      @user || errors.add(:token, 'Invalid token') && nil      
-    end
+  def user
+    @user ||= User.find(decoded_auth_token[:auth_token]) if decoded_auth_token
+    @user || errors.add(:token, 'Invalid token') && nil
+  end
 
-    def decoded_auth_token
-      @decoded_auth_token ||= JsonWebToken.decode(http_auth_headers)
-    end
+  def decoded_auth_token
+    @decoded_auth_token ||= JsonWebToken.decode(http_auth_headers)
+  end
 
-    def http_auth_headers
-      if headers['Authorization'].present?
-        return headers['Authorization'].split(' ').last
-      else
-        errors.add(:token, 'Missing token')
-      end
-      nil
-    end
+  def http_auth_headers
+    return headers['Authorization'].split(' ').last if headers['Authorization'].present?
+
+    errors.add(:token, 'Missing token')
+    nil
+  end
 end

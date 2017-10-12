@@ -1,7 +1,7 @@
 class Api::V1::CoursesController < ApplicationController
-  before_action :authenticate_request, :entrepreneur, only: [:create, :update]
-  
-  def show 
+  before_action :authenticate_request, :entrepreneur, only: %i[create update]
+
+  def show
     @course = Course.find(params[:id])
 
     render json: :show, status: :ok
@@ -31,5 +31,5 @@ class Api::V1::CoursesController < ApplicationController
 
   def course_params
     params.permit(:name, :price, :duration, :description, :start_date, :status)
-  end 
+  end
 end

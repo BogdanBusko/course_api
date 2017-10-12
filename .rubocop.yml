@@ -1,0 +1,19 @@
+inherit_from: .rubocop_todo.yml
+Metrics/LineLength:
+  Max: 180
+Metrics/BlockLength: 
+  Max: 50
+Style/BracesAroundHashParameters:
+  EnforcedStyle: context_dependent
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+Documentation:
+    Enabled: false
+AllCops:
+  Include:
+    - '**/Gemfile'
+    - Rakefile
+    - config.ru
+    - lib/**/*.rake
+  Exclude:
+    - db/schema.rb

@@ -1,19 +1,15 @@
-class Api::V1::CategoriesController < ApplicationController
+class Api::V1::CategoriesController < BaseController
   before_action :authenticate_request, :entrepreneur, only: [:create]
-  
+
   def show
-    @courses_by_category = if params[:search].present?
-        Category.find(params[:id]).courses.courses.where(name: /.*#{params[:search]}*./i)
-      else
-        Category.find(params[:id]).courses.courses
-      end
+    @courses_by_category = Category.find(params[:id]).courses.courses
 
     render :show, status: :ok
   end
-  
+
   def create
     category = Category.new(cateory_params)
-    
+
     if category.save
       head(:created)
     else
@@ -21,9 +17,9 @@ class Api::V1::CategoriesController < ApplicationController
     end
   end
 
-  private 
+  private
 
   def cateory_params
     params.permit(:category)
-  end 
+  end
 end

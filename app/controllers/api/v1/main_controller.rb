@@ -1,12 +1,8 @@
 class Api::V1::MainController < ApplicationController
   def index
     @categories = Category.all
-    @courses = if params[:search].present?
-        Course.where(name: /#{params[:search].gsub("%20", " ").gsub("%23", "#")}/i)
-      else
-        Course.courses
-      end
+    @courses = Course.courses
 
-      render :index, status: :ok
-  end 
+    render :index, status: :ok
+  end
 end

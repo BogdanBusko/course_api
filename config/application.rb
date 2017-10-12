@@ -13,23 +13,22 @@ require 'action_cable/engine'
 require 'rails/test_unit/railtie'
 require 'mongoid'
 require 'database_cleaner'
+require 'email_address'
 
 DatabaseCleaner.strategy = :truncation
 
-#Load  mongoid configuration file
+# Load  mongoid configuration file
 Mongoid.load!('config/mongoid.yml')
 
 Bundler.require(*Rails.groups)
 
-module CourseApi
-  class Application < Rails::Application
-    config.load_defaults 5.1
-    config.api_only = true
-    config.autoload_paths << Rails.root.join('lib')
-    
-    config.session_store :cookie_store
-    config.middleware.use ActionDispatch::Cookies
-    config.middleware.use ActionDispatch::Session::CookieStore, config.session_options
-    config.middleware.use Rack::MethodOverride
-  end
+class Application < Rails::Application
+  config.load_defaults 5.1
+  config.api_only = true
+  config.autoload_paths << Rails.root.join('lib')
+
+  config.session_store :cookie_store
+  config.middleware.use ActionDispatch::Cookies
+  config.middleware.use ActionDispatch::Session::CookieStore, config.session_options
+  config.middleware.use Rack::MethodOverride
 end

@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :contact do
-    name "MyString"
-    email "MyString"
+    name 'MyString'
+    email 'MyString'
     phone 1
-    facebook "MyString"
+    facebook 'MyString'
   end
 end

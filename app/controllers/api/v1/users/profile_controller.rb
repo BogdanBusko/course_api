@@ -10,12 +10,12 @@ class Api::V1::Users::ProfileController < ApplicationController
       head(:accepted)
     else
       render json: { error: current_user.errors.full_messages }
-    end 
+    end
   end
 
-  private 
+  private
 
-    def user_params
-      params.permit(:full_name, :email, :password, :work_plays, :facebook, :phone)      
-    end
+  def user_params
+    params.permit %i[name email password work_plays facebook phone]
+  end
 end

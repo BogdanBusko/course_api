@@ -14,13 +14,13 @@ class AuthenticateUser
 
   private
 
-    attr_accessor :email, :password
+  attr_accessor :email, :password
 
-    def user
-      user ||= User.find_by(email: email)
-      return user if user&.valid_password?(password)
+  def user
+    user ||= User.find_by(email: email)
+    return user if user && user.valid_password?(password)
 
-      errors.add :user_authentication, 'Не вірний пароль!'
-      nil
-    end
+    errors.add :user_authentication, 'Не вірний пароль!'
+    nil
+  end
 end

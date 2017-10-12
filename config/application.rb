@@ -26,6 +26,7 @@ class Application < Rails::Application
   config.load_defaults 5.1
   config.api_only = true
   config.autoload_paths << Rails.root.join('lib')
+  config.i18n.default_locale = :en
 
   config.session_store :cookie_store
   config.middleware.use ActionDispatch::Cookies

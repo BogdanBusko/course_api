@@ -10,6 +10,7 @@ gem 'email_address'
 gem 'jwt'
 gem 'kaminari-mongoid'
 gem 'mongoid'
+gem 'rails-i18n', '~> 5.0.0'
 gem 'rails_admin', '~> 1.2'
 gem 'simple_command'
 gem 'whenever', require: false

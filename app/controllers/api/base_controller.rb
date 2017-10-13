@@ -5,10 +5,10 @@ class Api::BaseController < ApplicationController
 
   def authenticate_request
     @current_user = AuthorizeApiRequest.call(request.headers).result
-    render json: { error: 'Не вірний пароль' }, status: 401 unless @current_user
+    render json: { error: I18n.t('user_auth_errors.wrong_password') }, status: 401 unless @current_user
   end
 
   def entrepreneur
-    render json: { error: 'Ви не являєтесь підприємце! Для того щоб створювати нові курси ви мусите бути підриємцем!' }, status: 500 unless @current_user.entrepreneur
+    render json: { error: I18n.t('user_auth_errors.not_entrepreneur') }, status: 500 unless @current_user.entrepreneur
   end
 end

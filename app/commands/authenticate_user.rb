@@ -20,7 +20,7 @@ class AuthenticateUser
     user ||= User.find_by(email: email)
     return user if user && user.valid_password?(password)
 
-    errors.add :user_authentication, 'Не вірний пароль!'
+    errors.add :user_authentication, I18n.t('user_auth_errors.wrong_password')
     nil
   end
 end

@@ -32,7 +32,7 @@ RailsAdmin.config do |config|
 
   config.model 'User' do
     list do
-      fields :name, :email, :work_plays, :account_confirmed
+      fields :name, :email, :work_place, :account_confirmed
     end
 
     edit do

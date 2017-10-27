@@ -4,7 +4,18 @@ user1 = User.create(
   password: '1234567890',
   work_place: 'Webmil',
   entrepreneur: true,
-  phone: '380977153858'
+  phone: '380977153858',
+  role: :admin
+)
+
+user1 = User.create(
+  name: 'Busko Bogdan',
+  email: 'busko.bogdan1@gmail.com',
+  password: '1234567890',
+  work_place: 'Webmil',
+  entrepreneur: true,
+  phone: '380977153858',
+  role: :moderator
 )
 
 user2 = User.create(

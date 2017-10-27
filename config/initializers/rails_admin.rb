@@ -42,7 +42,9 @@ RailsAdmin.config do |config|
 
   config.authorize_with do
     authenticate_or_request_with_http_basic('Site Message') do |username, password|
-      username == 'admin' && password == 'admin'
+      user = User.find_by(email: username)
+
+      user && user.valid_password?(password) && user.admin? || user.moderator? ? true : false
     end
   end
 

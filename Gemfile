@@ -13,6 +13,7 @@ gem 'mongoid'
 gem 'rails-i18n', '~> 5.0.0'
 gem 'rails_admin', '~> 1.2'
 gem 'simple_command'
+gem 'simple_enum', '~> 2.3.0' , require: 'simple_enum/mongoid'
 gem 'whenever', require: false
 
 gem 'bcrypt', '~> 3.1.7'
